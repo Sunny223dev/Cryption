@@ -3,10 +3,25 @@ import tkinter as tk
 from PIL import Image, ImageTk
 from tkinter import Tk, Label, Button
 import profile_window
+import notes_window
+import password_gen_window
+import add_password_window
 
 # Open profile window when clicked
 def open_profile_window():
     profile_window.open_profile_window()
+    
+    # Open notes window when clicked
+def open_notes_window():
+    notes_window.open_notes_window()
+    
+    # Open password gen window when clicked
+def open_password_gen_window():
+    password_gen_window.open_password_gen_window()
+    
+    # Open add password window when clicked
+def open_add_password_window():
+    add_password_window.open_add_password_window()
 
 # Centers Window
 def center_window(window):
@@ -54,11 +69,12 @@ tk_profile_account_img = ImageTk.PhotoImage(profile_account_img)
 profile_account_icon_label = Label(sidebar_frame, image=tk_profile_account_img, bg="#37474f")
 profile_account_icon_label.pack(pady=5)
 
+# Open profile window when clicked
 def open_profile_window():
     profile_window.open_profile_window()
 
 # Create a button using the profile icon image
-profile_button = Button(sidebar_frame, image=tk_profile_account_img, bg="#37474f", bd=0, command=open_profile_window, takefocus=False, cursor="hand2")
+profile_button = Button(sidebar_frame, image=tk_profile_account_img, bg="#37474f", bd=0, command=open_profile_window, takefocus=False, cursor="hand2", highlightbackground="#37474f", highlightcolor="#37474f")
 profile_button.pack(pady=5)
 
 # Adds house icon to the sidebar
@@ -80,6 +96,14 @@ notes_img = notes_img.resize((new_width, new_height), Image.BICUBIC)
 tk_notes_img = ImageTk.PhotoImage(notes_img)
 notes_icon_label = Label(sidebar_frame, image=tk_notes_img, bg="#37474f")
 notes_icon_label.pack(pady=5)
+
+# Open profile window when clicked
+def open_notes_window():
+    notes_window.open_notes_window()
+
+# Create a button using the profile icon image
+notes_button = Button(sidebar_frame, image=tk_notes_img, bg="#37474f", bd=0, command=open_notes_window, takefocus=False, cursor="hand2", highlightbackground="#37474f", highlightcolor="#37474f")
+notes_button.pack(pady=5)
 
 # Adds lock add icon to the sidebar
 lock_add_icon_path = r'Assets\Sidebar - Icons\lock-add-icon.ico'
@@ -116,7 +140,7 @@ profile_account_icon_label.place(x=3, y=10)
 house_icon_label.place(x=3, y=160)
 notes_icon_label.place(x=-8, y=235)
 lock_add_icon_label.place(x=8, y=330)
-key_gen_icon_label.place(x=-11.5, y=390)
+key_gen_icon_label.place(x=-11.8, y=390)
 settings_icon_label.place(x=-8, y=553)
 
 # Background color
